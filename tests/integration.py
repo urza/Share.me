@@ -64,7 +64,7 @@ def request(path, method='GET', data=None, headers=None):
 
 def start():
     global process
-    process = subprocess.Popen(['dotnet', str(PROJECT / 'bin/Release/net10.0/ShareMe.dll')], cwd=PROJECT, env=env, stdout=log, stderr=log, start_new_session=True)
+    process = subprocess.Popen(['dotnet', str(PROJECT / 'bin/Release/net11.0/ShareMe.dll')], cwd=PROJECT, env=env, stdout=log, stderr=log, start_new_session=True)
     for _ in range(100):
         try:
             if request('/healthz')[0] == 200: return
