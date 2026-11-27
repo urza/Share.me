@@ -30,7 +30,9 @@ jobs:
 
   publish:
     needs: test
-    if: github.event_name != 'pull_request'
+    # Publish only from the canonical repo. A fork's GITHUB_TOKEN cannot write
+    # to ghcr.io/urza, so a push to a fork's main would fail at this job.
+    if: github.event_name != 'pull_request' && github.repository == 'urza/Share.me'
     runs-on: ubuntu-24.04
     timeout-minutes: 40
     permissions:
@@ -50,7 +52,7 @@ jobs:
         id: metadata
         uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5
         with:
-          images: ghcr.io/d3mnjx/share.me
+          images: ghcr.io/urza/share.me
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha,prefix=sha-

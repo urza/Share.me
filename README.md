@@ -13,13 +13,13 @@ The token-authenticated integration API supports submission, polling, listing, d
 Linux (Bash):
 
 ```sh
-docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/d3mnjx/share.me:latest
+docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/urza/share.me:latest
 ```
 
 Windows (PowerShell, Docker Desktop using Linux containers):
 
 ```powershell
-docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/d3mnjx/share.me:latest
+docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/urza/share.me:latest
 ```
 
 Replace `https://your-domain.example` with your actual public HTTPS address, served through a reverse proxy to port 6901. For local HTTP testing, omit `-e PUBLIC_URL='https://your-domain.example'`.
@@ -31,13 +31,13 @@ Update an existing container using the same API token, public URL, and data volu
 Linux (Bash):
 
 ```sh
-docker pull ghcr.io/d3mnjx/share.me:latest; docker stop share-me; docker rm share-me; docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/d3mnjx/share.me:latest
+docker pull ghcr.io/urza/share.me:latest; docker stop share-me; docker rm share-me; docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/urza/share.me:latest
 ```
 
 Windows (PowerShell):
 
 ```powershell
-docker pull ghcr.io/d3mnjx/share.me:latest; docker stop share-me; docker rm share-me; docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/d3mnjx/share.me:latest
+docker pull ghcr.io/urza/share.me:latest; docker stop share-me; docker rm share-me; docker run -d --name share-me --restart unless-stopped --init -p 6901:8080 -v shareme-data:/data -e API_TOKEN='replace-with-a-long-random-token' -e PUBLIC_URL='https://your-domain.example' ghcr.io/urza/share.me:latest
 ```
 
 To build from source instead:
@@ -142,6 +142,6 @@ Keep the original Docker volume and set `DATA_VOLUME=shareto_share-data` in `.en
 
 ## Container releases
 
-[GitHub Actions](https://github.com/d3mnjx/Share.me/actions/workflows/container.yml) runs the integration suite and publishes `ghcr.io/d3mnjx/share.me` for AMD64 and ARM64. Pushes to `main` update `latest`; each published commit also receives a `sha-…` tag. Tags such as `v1.0.0` publish the corresponding version tag. Pull requests run tests without publishing. The workflow uses GitHub's built-in `GITHUB_TOKEN` with package-write permission; no registry password secret is required.
+[GitHub Actions](https://github.com/urza/Share.me/actions/workflows/container.yml) runs the integration suite and publishes `ghcr.io/urza/share.me` for AMD64 and ARM64. Pushes to `main` update `latest`; each published commit also receives a `sha-…` tag. Tags such as `v1.0.0` publish the corresponding version tag. Pull requests run tests without publishing. The workflow uses GitHub's built-in `GITHUB_TOKEN` with package-write permission; no registry password secret is required.
 
 See [preview research and fallbacks](docs/link-previews.md) for the Signal, Apple Messages, Slack, and Open Graph compatibility work.
