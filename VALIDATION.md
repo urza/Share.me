@@ -64,4 +64,6 @@ The full integration/browser suite passed with the 23-per-day and 66-share defau
 
 ## Published container
 
-[GitHub Actions run 38904087430](https://github.com/d3mnjx/Share.me/actions/runs/38904087430) passed its integration tests and published `ghcr.io/d3mnjx/share.me:latest` from commit `741cccc`. The package is public. A pull with an empty Docker configuration succeeded without credentials, and the published manifest includes Linux AMD64 and ARM64 images. A temporary container running the published AMD64 image passed health, homepage, raster icon, and missing/valid API-token checks; yt-dlp and Deno executed successfully. ARM64 was built and its manifest verified, but was not independently runtime-tested on ARM hardware.
+[GitHub Actions run 38904087430](https://github.com/urza/Share.me/actions/runs/38904087430) passed its integration tests and published `ghcr.io/d3mnjx/share.me:latest` from commit `741cccc`. The package is public. A pull with an empty Docker configuration succeeded without credentials, and the published manifest includes Linux AMD64 and ARM64 images. A temporary container running the published AMD64 image passed health, homepage, raster icon, and missing/valid API-token checks; yt-dlp and Deno executed successfully. ARM64 was built and its manifest verified, but was not independently runtime-tested on ARM hardware.
+
+The repository moved from d3mnjx to urza on 2026-11-27. Images built after the move publish to `ghcr.io/urza/share.me`. The old `ghcr.io/d3mnjx/share.me` package receives no new images.

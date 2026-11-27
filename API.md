@@ -10,7 +10,7 @@ docker run -d --name shareme \
   -p 7543:8080 \
   -e API_TOKEN="$API_TOKEN" \
   -v shareme-data:/data \
-  ghcr.io/d3mnjx/share.me:latest
+  ghcr.io/urza/share.me:latest
 ```
 
 Use your existing data volume when upgrading an instance. Compose reads its volume name from `DATA_VOLUME`.
